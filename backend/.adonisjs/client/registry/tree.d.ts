@@ -17,5 +17,10 @@ export interface ApiDefinition {
     accessTokens: {
       destroy: typeof routes['profile.access_tokens.destroy']
     }
+    transactions: {
+      deposit: typeof routes['profile.transactions.deposit']
+      transfer: typeof routes['profile.transactions.transfer']
+      index: typeof routes['profile.transactions.index']
+    }
   }
 }

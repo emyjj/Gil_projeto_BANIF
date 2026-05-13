@@ -51,6 +51,27 @@ export class AuthAccessTokenSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class TransactionSchema extends BaseModel {
+  static $columns = ['accountId', 'contaDestinoId', 'createdAt', 'descricao', 'id', 'tipo', 'updatedAt', 'valor'] as const
+  $columns = TransactionSchema.$columns
+  @column()
+  declare accountId: number | null
+  @column()
+  declare contaDestinoId: number | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare descricao: string | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare tipo: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column()
+  declare valor: number
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['cidade', 'cpf', 'createdAt', 'email', 'estado', 'fullName', 'id', 'password', 'rua', 'telefone', 'updatedAt'] as const
   $columns = UserSchema.$columns

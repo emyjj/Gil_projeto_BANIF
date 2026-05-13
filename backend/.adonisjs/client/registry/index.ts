@@ -30,6 +30,24 @@ const routes = {
     tokens: [{"old":"/api/v1/account/logout","type":0,"val":"api","end":""},{"old":"/api/v1/account/logout","type":0,"val":"v1","end":""},{"old":"/api/v1/account/logout","type":0,"val":"account","end":""},{"old":"/api/v1/account/logout","type":0,"val":"logout","end":""}],
     types: placeholder as Registry['profile.access_tokens.destroy']['types'],
   },
+  'profile.transactions.deposit': {
+    methods: ["POST"],
+    pattern: '/api/v1/account/deposit',
+    tokens: [{"old":"/api/v1/account/deposit","type":0,"val":"api","end":""},{"old":"/api/v1/account/deposit","type":0,"val":"v1","end":""},{"old":"/api/v1/account/deposit","type":0,"val":"account","end":""},{"old":"/api/v1/account/deposit","type":0,"val":"deposit","end":""}],
+    types: placeholder as Registry['profile.transactions.deposit']['types'],
+  },
+  'profile.transactions.transfer': {
+    methods: ["POST"],
+    pattern: '/api/v1/account/transfer',
+    tokens: [{"old":"/api/v1/account/transfer","type":0,"val":"api","end":""},{"old":"/api/v1/account/transfer","type":0,"val":"v1","end":""},{"old":"/api/v1/account/transfer","type":0,"val":"account","end":""},{"old":"/api/v1/account/transfer","type":0,"val":"transfer","end":""}],
+    types: placeholder as Registry['profile.transactions.transfer']['types'],
+  },
+  'profile.transactions.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/account/transactions',
+    tokens: [{"old":"/api/v1/account/transactions","type":0,"val":"api","end":""},{"old":"/api/v1/account/transactions","type":0,"val":"v1","end":""},{"old":"/api/v1/account/transactions","type":0,"val":"account","end":""},{"old":"/api/v1/account/transactions","type":0,"val":"transactions","end":""}],
+    types: placeholder as Registry['profile.transactions.index']['types'],
+  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }
