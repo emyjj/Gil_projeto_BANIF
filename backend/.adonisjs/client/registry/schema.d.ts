@@ -91,4 +91,40 @@ export interface Registry {
       errorResponse: unknown
     }
   }
+  'profile.investments.invest': {
+    methods: ["POST"]
+    pattern: '/api/v1/account/investments'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
+  'profile.investments.list': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/account/investments'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
+  'profile.investments.rescue': {
+    methods: ["POST"]
+    pattern: '/api/v1/account/investments/:id/rescue'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: unknown
+      errorResponse: unknown
+    }
+  }
 }

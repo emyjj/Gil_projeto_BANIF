@@ -51,6 +51,23 @@ export class AuthAccessTokenSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class InvestmentSchema extends BaseModel {
+  static $columns = ['accountId', 'createdAt', 'id', 'tipo', 'updatedAt', 'valor'] as const
+  $columns = InvestmentSchema.$columns
+  @column()
+  declare accountId: number | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare tipo: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column()
+  declare valor: number
+}
+
 export class TransactionSchema extends BaseModel {
   static $columns = ['accountId', 'contaDestinoId', 'createdAt', 'descricao', 'id', 'tipo', 'updatedAt', 'valor'] as const
   $columns = TransactionSchema.$columns
@@ -73,7 +90,7 @@ export class TransactionSchema extends BaseModel {
 }
 
 export class UserSchema extends BaseModel {
-  static $columns = ['cidade', 'cpf', 'createdAt', 'email', 'estado', 'fullName', 'id', 'password', 'rua', 'telefone', 'updatedAt'] as const
+  static $columns = ['cidade', 'cpf', 'createdAt', 'email', 'estado', 'fullName', 'id', 'password', 'role', 'rua', 'telefone', 'updatedAt'] as const
   $columns = UserSchema.$columns
   @column()
   declare cidade: string | null
@@ -91,6 +108,8 @@ export class UserSchema extends BaseModel {
   declare id: number
   @column({ serializeAs: null })
   declare password: string
+  @column()
+  declare role: string
   @column()
   declare rua: string | null
   @column()

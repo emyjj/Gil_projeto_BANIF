@@ -48,6 +48,24 @@ const routes = {
     tokens: [{"old":"/api/v1/account/transactions","type":0,"val":"api","end":""},{"old":"/api/v1/account/transactions","type":0,"val":"v1","end":""},{"old":"/api/v1/account/transactions","type":0,"val":"account","end":""},{"old":"/api/v1/account/transactions","type":0,"val":"transactions","end":""}],
     types: placeholder as Registry['profile.transactions.index']['types'],
   },
+  'profile.investments.invest': {
+    methods: ["POST"],
+    pattern: '/api/v1/account/investments',
+    tokens: [{"old":"/api/v1/account/investments","type":0,"val":"api","end":""},{"old":"/api/v1/account/investments","type":0,"val":"v1","end":""},{"old":"/api/v1/account/investments","type":0,"val":"account","end":""},{"old":"/api/v1/account/investments","type":0,"val":"investments","end":""}],
+    types: placeholder as Registry['profile.investments.invest']['types'],
+  },
+  'profile.investments.list': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/account/investments',
+    tokens: [{"old":"/api/v1/account/investments","type":0,"val":"api","end":""},{"old":"/api/v1/account/investments","type":0,"val":"v1","end":""},{"old":"/api/v1/account/investments","type":0,"val":"account","end":""},{"old":"/api/v1/account/investments","type":0,"val":"investments","end":""}],
+    types: placeholder as Registry['profile.investments.list']['types'],
+  },
+  'profile.investments.rescue': {
+    methods: ["POST"],
+    pattern: '/api/v1/account/investments/:id/rescue',
+    tokens: [{"old":"/api/v1/account/investments/:id/rescue","type":0,"val":"api","end":""},{"old":"/api/v1/account/investments/:id/rescue","type":0,"val":"v1","end":""},{"old":"/api/v1/account/investments/:id/rescue","type":0,"val":"account","end":""},{"old":"/api/v1/account/investments/:id/rescue","type":0,"val":"investments","end":""},{"old":"/api/v1/account/investments/:id/rescue","type":1,"val":"id","end":""},{"old":"/api/v1/account/investments/:id/rescue","type":0,"val":"rescue","end":""}],
+    types: placeholder as Registry['profile.investments.rescue']['types'],
+  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }

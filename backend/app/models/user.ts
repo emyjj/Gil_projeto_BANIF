@@ -3,6 +3,7 @@ import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
 import { column, hasOne } from '@adonisjs/lucid/orm'
 
+
 import type { HasOne } from '@adonisjs/lucid/types/relations'
 
 import Account from './account.js'
@@ -18,6 +19,9 @@ export default class User extends compose(UserSchema, withAuthFinder(hash)) {
 
   declare currentAccessToken?: AccessToken
 
+  @column()
+  declare role: string
+
   @hasOne(() => Account)
   declare account: HasOne<typeof Account>
 
@@ -32,4 +36,5 @@ export default class User extends compose(UserSchema, withAuthFinder(hash)) {
 
     return `${first.slice(0, 2)}`.toUpperCase()
   }
+  
 }

@@ -22,5 +22,10 @@ export interface ApiDefinition {
       transfer: typeof routes['profile.transactions.transfer']
       index: typeof routes['profile.transactions.index']
     }
+    investments: {
+      invest: typeof routes['profile.investments.invest']
+      list: typeof routes['profile.investments.list']
+      rescue: typeof routes['profile.investments.rescue']
+    }
   }
 }

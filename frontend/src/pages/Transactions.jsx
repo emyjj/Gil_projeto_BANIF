@@ -1,3 +1,17 @@
+function getTransactionTitle(tipo) {
+  if (tipo === 'pix_enviado') return 'Pix enviado'
+  if (tipo === 'pix_recebido') return 'Pix recebido'
+  if (tipo === 'aplicacao') return 'Aplicação financeira'
+  if (tipo === 'resgate') return 'Resgate de aplicação'
+  if (tipo === 'deposito') return 'Depósito'
+
+  return tipo
+}
+
+function isPositive(tipo) {
+  return tipo === 'pix_recebido' || tipo === 'resgate' || tipo === 'deposito'
+}
+
 export default function Transactions({ transactions }) {
   return (
     <div className="page">
@@ -14,24 +28,12 @@ export default function Transactions({ transactions }) {
         {transactions.map((transaction) => (
           <div className="statement-item" key={transaction.id}>
             <div>
-              <strong>
-                {transaction.tipo === 'pix_enviado'
-                  ? 'Pix enviado'
-                  : 'Pix recebido'}
-              </strong>
-
+              <strong>{getTransactionTitle(transaction.tipo)}</strong>
               <p>{transaction.descricao}</p>
             </div>
 
-            <span
-              className={
-                transaction.tipo === 'pix_recebido'
-                  ? 'positive'
-                  : 'negative'
-              }
-            >
-              {transaction.tipo === 'pix_recebido' ? '+' : '-'} R${' '}
-              {transaction.valor}
+            <span className={isPositive(transaction.tipo) ? 'positive' : 'negative'}>
+              {isPositive(transaction.tipo) ? '+' : '-'} R$ {transaction.valor}
             </span>
           </div>
         ))}

@@ -12,6 +12,7 @@ export default class UserTransformer extends BaseTransformer<User> {
       'estado',
       'rua',
       'telefone',
+      'role',
       'createdAt',
       'updatedAt',
       'initials',
